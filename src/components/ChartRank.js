@@ -4,10 +4,9 @@ import { Chart } from "chart.js/auto";
 import { useSelector } from "react-redux";
 import { SongItem } from "./";
 import _ from "lodash";
-import { CiGlass } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 
-const ChartRank = () => {
+const ChartRank = ({isChartHome}) => {
   const [data, setData] = useState(null);
   const { chart, rank, chartdata } = useSelector((state) => state.app);
   const chartRef = useRef();
@@ -109,12 +108,12 @@ const ChartRank = () => {
   }, [chart]);
   // console.log(chartdata)
   return (
-    <div className="chartRank">
-      <div className="chart_title">
+    <div className={isChartHome ? 'chart_f': 'chartRank'}>
+      <div className={isChartHome ? 'chartTitle_home' : 'chart_title'}>
         <h3>#zingchart</h3>
       </div>
       <div className="chart_content">
-        <div className="rank_song">
+        <div className="rank_song" style={isChartHome ? {display : 'none'}: {}}>
           {rank
             ?.filter((i, index) => index < 3)
             ?.map((item, index) => (
@@ -127,7 +126,7 @@ const ChartRank = () => {
               />
             ))}
         </div>
-        <div className="chart_line">
+        <div className={isChartHome ? 'chartline_home' : 'chart_line'}>
           {data && (
             <Line
               data={data}

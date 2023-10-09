@@ -9,3 +9,4 @@ export {default as SearchSong} from './SearchSong';
 export {default as Singer} from './Singer';
 export {default as SearchPlaylist} from './SearchPlaylist';
 export {default as ArtistSinger} from './ArtistSinger';
+export {default as BXHWeek} from './BXHWeek';

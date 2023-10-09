@@ -11,7 +11,6 @@ const SidebarLeft = () => {
         <div onClick={()=> navi(path.HOME)} className='logo'>
             <img src={logo} alt="Logo" className='img_logo'/>
         </div>
-
         <div className='nav_menu'>
             
             {

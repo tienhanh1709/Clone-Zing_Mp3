@@ -1,24 +1,32 @@
 import { useSelector, useDispatch } from 'react-redux';
 import './App.css';
-import {Home,Login,Public, Allbum,SectionWeek,Searchs,SearchSong , SearchAll,Singer,SearchPlaylist,ArtistSinger} from './pages/public/index';
+import {Home,Login,Public, Allbum,SectionWeek,Searchs,SearchSong , SearchAll,Singer,SearchPlaylist,ArtistSinger,BXHWeek} from './pages/public/index';
 // import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import path from './ultil/path';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import * as actions from './store/action';
 import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";
 //
 import "react-alice-carousel/lib/alice-carousel.css";
-// import "react-alice-carousel/lib/scss/alice-carousel.scss";
+import { apiGetChartHome } from './apis';
 
 
 
 function App() {
   const dispatch = useDispatch();
+  const [weekData, setWeekData] = useState()
   useEffect(()=>{
     dispatch(actions.getHome())
+    const fetchChartData = async () => {
+      const response = await apiGetChartHome();
+      if (response.data.err === 0) {
+        setWeekData(response.data.data.weekChart);
+      }
+    };
+    fetchChartData();
   },[]);
   
   return (
@@ -32,6 +40,7 @@ function App() {
           <Route path={path.WEEKCHART_TITLE_PID} element={<SectionWeek />} />
           <Route path={path.HOME__SINGER} element={<Singer />} />
           <Route path={path.HOME_ARTIST} element={<Singer />} />
+          <Route path={path.WEEK_TITLE_PID} element={<BXHWeek weekData={weekData && Object.values(weekData)}/>} />
 
           <Route path={path.SEARCH} element={<Searchs />} >
             <Route path={path.ALL} element={<SearchAll />} />

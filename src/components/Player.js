@@ -81,7 +81,6 @@ const Player = ({setIsShow}) => {
 
   useEffect(() => {
     const handleEnded = () => {
-      console.log(isShuff);
       if (isShuff) {
         handleShuff();
       } else if (repeatMode) {
@@ -128,7 +127,10 @@ const Player = ({setIsShow}) => {
         if (item.encodeId === curIdSong) currentSongIndex = index;
       });
 
-      let idSongSelected = currentSongIndex;
+      if(isShuff){
+        handleShuff();
+      }else{
+        let idSongSelected = currentSongIndex;
       if (currentSongIndex === songs.length - 1) {
         idSongSelected = 0;
         dispatch(actions.setCurSongId(songs[idSongSelected].encodeId));
@@ -136,6 +138,7 @@ const Player = ({setIsShow}) => {
       } else {
         dispatch(actions.setCurSongId(songs[currentSongIndex + 1].encodeId));
         dispatch(actions.play(true));
+      }
       }
       //
     }
@@ -167,6 +170,7 @@ const Player = ({setIsShow}) => {
     dispatch(actions.setCurSongId(songs[randomIndex].encodeId));
     dispatch(actions.play(true));
     // setIsShuff((prev) => !prev);
+    console.log(isShuff);
     // songs.splice(randomIndex, 1);
     // // console.log(songs)
   };

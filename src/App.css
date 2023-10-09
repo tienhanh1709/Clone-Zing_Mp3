@@ -594,6 +594,7 @@ html {
     margin-bottom: 20px;
     text-transform: none;
     margin-bottom : 20px;
+    width : 55px;
 }
 .stt span{
   font-size: 38px;
@@ -669,6 +670,14 @@ html {
   justify-content: space-between;
   margin-bottom: 20px;
 }
+.rank_category {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
 
 .btn_action {
   width: 95px;
@@ -679,6 +688,17 @@ html {
   margin: 0 10px;
   color: #fff;
   font-size: 14px;
+  font-weight: bold;
+}
+
+.rank_action {
+  width: 150px;
+  height: 50px;
+  background-color: #170F23;
+  border: none;
+  margin: 0 10px;
+  color: #fff;
+  font-size: 24px;
   font-weight: bold;
 }
 .song_items {
@@ -916,6 +936,27 @@ html {
   -webkit-text-fill-color: transparent;
   font-weight: bold;
 }
+.chartTitle_home{
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  line-height: normal;
+  font-weight: 700;
+  letter-spacing: normal;
+  color: white;
+  margin-bottom: 20px;
+  text-transform: none;
+  margin-bottom : 20px;
+}
+.chartTitle_home h3{
+  font-size: 45px;
+  background: radial-gradient(50% 124.93% at 95.86% -10%,#3efad9 0,hsla(0,0%,100%,0) 100%),linear-gradient(91.56deg,#ff9357 1.54%,#9100ff 98.71%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
 .chart_content{
   height : 90%;
   display : flex;
@@ -931,9 +972,12 @@ html {
   height : 90%;
   position : relative;
 }
-/* .chart_positon{
+
+.chartline_home{
+  width : 100%;
+  height : 100%;
   position : relative;
-} */
+}
 .tooltip{
   width : 100%;
   height : 80px;
@@ -1352,6 +1396,10 @@ button.btn_action.tab-active {
   background: rebeccapurple;
 }
 
+button.rank_action.tab-active {
+  border-bottom : 4px solid rebeccapurple;
+}
+
 ::-webkit-scrollbar {
   width: 2px;
   opacity: 0;
@@ -1478,4 +1526,85 @@ button.recently {
 span.from {
   display: flex;
   gap: 5px;
+}
+
+
+
+.chart_home{
+  padding : 90px 70px;
+  color : #FFFFFF;
+}
+.chart_full{
+  width : 100%;
+  height : 300px;
+}
+.chart_f{
+  width : 100%;
+  height : 300px;
+}
+.song_top100{
+  width : 100%;
+  min-height: 550px;
+  margin-top : 60px;
+}
+.btn_chart{
+  width : 150px;
+  height :40px;
+  background : none;
+  border : 1px solid #FFFFFF;
+  border-radius : 12px;
+  color : #FFFFFF;
+  font-size : 16px;
+  font-weight : bold;
+  margin : 20px 520px;
+}
+.btn_chart:hover{
+  background : #2F2739;
+}
+
+.rank_countrys{
+  width: 100%;
+  height :600px;
+  display :flex;
+  justify-content : space-between;
+}
+.rank_tl {
+  font-size : 30px;
+  font-weight : bold;
+  margin-bottom : 20px
+}
+.rank_country{
+  width: 32%;
+  height : 100%;
+  background-color : #291E3C;
+  border-radius : 12px;
+}
+.rank_title{
+  font-size : 28px;
+  margin : 20px 40px;
+  font-weight : bold;
+}
+.btnChart_bottom{
+  width : 150px;
+  height :40px;
+  background : none;
+  border : 1px solid #FFFFFF;
+  border-radius : 12px;
+  color : #FFFFFF;
+  font-size : 16px;
+  font-weight : bold;
+  margin : 20px 100px;
+}
+.btnChart_bottom:hover{
+  background : #2F2739;
+}
+.rank_week{
+  width : 90%;
+  height : 100%;
+  margin : 90px auto;
+  margin-bottom : 5px;
+  color : #FFFFFF;
+}
+.week_title h1{
+  font-size : 35px;
 }

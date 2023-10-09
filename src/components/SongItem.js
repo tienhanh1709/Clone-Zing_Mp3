@@ -6,7 +6,7 @@ import * as actions from "../store/action";
 import { Modal } from "antd";
 import { Tag } from "primereact/tag";
 const { BsMusicNoteBeamed } = icons;
-const SongItem = ({ songData, isShow = true, order, percent, isChart,isTooltip }) => {
+const SongItem = ({ songData, isShow = true, order, percent, isChart,isTooltip,isChartHome }) => {
   const dispatch = useDispatch();
   const warning = () => {
     Modal.warning({
@@ -33,8 +33,8 @@ const SongItem = ({ songData, isShow = true, order, percent, isChart,isTooltip }
       >
         
         <div className={isChart ? 'infor_chart' : 'info'}>
-          <div className={isChart ? 'stt' :''}>
-            {isChart ? order && <span>{order}</span> : <span>{isShow ? <BsMusicNoteBeamed /> : ""}</span>}
+          <div className={isChart || isChartHome ? 'stt' :''}>
+            {isChart || isChartHome ? order && <span>{order}</span> : <span>{isShow ? <BsMusicNoteBeamed /> : ""}</span>}
           </div>
           <div>
             <img
